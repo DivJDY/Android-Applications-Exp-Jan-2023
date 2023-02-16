@@ -18,9 +18,30 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions("default")
+    productFlavors{
+
+        dev{
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+            manifestPlaceholders = [appLabel: "AOP_dev"]
+        }
+        stage{
+            applicationIdSuffix = ".stage"
+            versionNameSuffix = "-stage"
+            manifestPlaceholders = [appLabel: "AOP_stage"]
+        }
+        prod{
+            applicationId "iterate.ai.aop"
+            manifestPlaceholders = [appLabel: "AOP"]
         }
     }
     compileOptions {
