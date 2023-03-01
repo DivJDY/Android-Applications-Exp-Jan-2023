@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayout5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/playerViewFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/learn_it_try_it_layout"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:elevation="5dp"
+            android:weightSum="3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/video_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/video_description_tv"
+                app:layout_constraintStart_toStartOf="@+id/video_description_tv" />
+
+            <iterate.ai.aop.customviews.TruncatingTextView
+                android:id="@+id/video_description_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/home_screen_title1"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/user_profile_iv"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/bookmark_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="18dp"
+                app:tint="@android:color/white"
+                app:layout_constraintBottom_toTopOf="@+id/bookmark_text_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/icon_bookmark_outline" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/bookmark_text_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="22dp"
+                android:text="@string/bookmark_text"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/comments_iv"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            </com.google.android.material.textview.MaterialTextView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/comments_iv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="18dp"
+                app:layout_constraintBottom_toTopOf="@+id/comments_text_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@android:color/white"
+                app:srcCompat="@drawable/ic_book" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/comments_text_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="22dp"
+                android:text="@string/comments_text"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/share_iv"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            </com.google.android.material.textview.MaterialTextView>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/share_iv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="18dp"
+                app:tint="@android:color/white"
+                android:layout_marginBottom="22dp"
+                app:layout_constraintBottom_toTopOf="@+id/user_profile_iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/icon_share_solid_default" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/user_profile_iv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="18dp"
+                app:tint="@android:color/white"
+                android:layout_marginBottom="17dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_profile" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/learn_it_try_it_layout"
+        android:layout_width="match_parent"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/learn_it_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/learn_it_button_text"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/try_it_button"
+            app:layout_constraintHorizontal_weight="1"
+            android:textColor="@android:color/white"
+            app:cornerRadius="7dp"
+            android:layout_marginEnd="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/try_it_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/learn_it_button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            android:text="@string/try_it_button_text"
+            android:textAllCaps="false"
+            android:layout_marginStart="8dp"
+            app:cornerRadius="7dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
