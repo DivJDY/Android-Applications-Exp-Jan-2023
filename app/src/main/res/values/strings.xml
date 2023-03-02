@@ -15,8 +15,10 @@
     <string name="comments_text">20K</string>
     <string name="learn_it_button_text">Learn It</string>
     <string name="try_it_button_text">Try It</string>
-    <string name="show_more">View More</string>
-    <string name="show_less">View Less</string>
-    <string name="ellipsis">...</string>
+    <string name="bottom_navigation_home">Home</string>
+    <string name="bottom_navigation_discover">Discover</string>
+    <string name="bottom_navigation_new_post">Add</string>
+    <string name="bottom_navigation_course">Course</string>
+    <string name="bottom_navigation_profile">Profile</string>
 
 </resources>

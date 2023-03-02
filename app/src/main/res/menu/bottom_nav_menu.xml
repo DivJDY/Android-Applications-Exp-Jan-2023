@@ -3,25 +3,25 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/icon_home_default"
-        android:title="Home"/>
+        android:title="@string/bottom_navigation_home"/>
 
     <item
         android:id="@+id/navigation_discover"
         android:icon="@drawable/icon_discover_default"
-        android:title="Discover"/>
+        android:title="@string/bottom_navigation_discover"/>
 
     <item
-        android:id="@+id/navigation_add"
-        android:icon="@drawable/ic_real"
-        android:title="Add"/>
+        android:id="@+id/navigation_new_post"
+        android:icon="@drawable/new_post"
+        android:title="@string/bottom_navigation_new_post"/>
 
     <item
         android:id="@+id/navigation_learn"
         android:icon="@drawable/icon_learn_default"
-        android:title="Course"/>
+        android:title="@string/bottom_navigation_course"/>
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/icon_profile_active"
-        android:title="Profile"/>
+        android:title="@string/bottom_navigation_profile"/>
 </menu>

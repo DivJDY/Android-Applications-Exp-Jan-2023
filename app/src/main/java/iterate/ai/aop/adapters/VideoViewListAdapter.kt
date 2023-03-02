@@ -1,4 +1,4 @@
-package iterate.ai.aop.presentation.adapters
+package iterate.ai.aop.adapters
 
 import android.content.Context
 import android.graphics.Point
@@ -19,8 +19,7 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
 import iterate.ai.aop.R
 import kotlinx.android.synthetic.main.adapter_video_view_item.view.*
 
-
-class VideoViewListAdapter(private val videosList: ArrayList<String>) :
+class VideoViewListAdapter(private val videosList: List<String>) :
     RecyclerView.Adapter<VideoViewListAdapter.ViewHolder>() {
 
     private val mStoredMedia: SparseArray<String> = SparseArray<String>()

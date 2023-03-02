@@ -1,82 +1,79 @@
 ext {
-    def gradleVersion = "7.0.4"
-    def kotlinGradleVersion = "1.8.0"
-    def hiltGradleVersion = "2.40.5"
-    def appCompatVersion = "1.6.1"
-    def materialVersion = "1.8.0"
-    def constraintLayoutVersion = "2.1.3"
-    def coreKtxVersion = "1.7.0"
-    def activityKtx = "1.4.0"
-    def lifecycleLivedataKtx = "2.4.0"
-    def lifecycleViewModelKtx = "2.4.0"
-    def navigationFragmentKtx = "2.3.5"
-    def navigationUiKtx = "2.3.5"
-    def lifecycleExtensions = "2.2.0"
-    def testCore = "2.1.0"
-    def testKotlinxCoroutines = "1.5.2"
-    def testMockitoCore = "3.11.0"
-    def testJunit = "4.13.2"
-    def androidTestJunit = "1.1.3"
-    def androidTestEspressoCore = "3.4.0"
-    def retrofitVersion = "2.9.0"
-    def retrofitConverterGsonVersion = "2.9.0"
-    def okhttpVersion = "4.9.0"
-    def okhttpLoggingInterceptorVersion = "4.8.0"
-    def hiltAndroidVersion = "2.40.5"
-    def kaptHiltAndroidCompilerVersion = "2.40.5"
-    def hiltLifecycleViewModelVersion = "1.0.0-alpha03"
-    def kaptHiltCompilerVersion = "1.0.0"
-    def kotlinxCoroutinesVersion = "1.5.2"
+    // Version
+    appCompat = "1.4.1"
+    constraintlayout = "2.1.3"
+    coreKtx = "1.7.0"
+    coroutines = "1.4.3"
+    espresso = "3.4.0"
+    glide = "4.13.1"
+    gson = "2.9.0"
+    hilt = "2.41"
+    hiltLifecycle = "1.0.0"
+    junit = "4.13.2"
+    junitAndroid = "1.1.3"
+    retrofit = "2.9.0"
+    roomDb = "2.4.2"
+    lifecycle = "2.2.0"
+    liveData = "2.4.1"
+    material = "1.5.0"
+    navigation = "2.4.1"
 
-    classPaths = [
-            gradlePath      : "com.android.tools.build:gradle:$gradleVersion",
-            kotlinGradlePath: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradleVersion",
-            hiltPath        : "com.google.dagger:hilt-android-gradle-plugin:$hiltGradleVersion"
+    androidTestLibraries = [
+            junit   : "androidx.test.ext:junit:$junitAndroid",
+            espresso: "androidx.test.espresso:espresso-core:$espresso"
     ]
 
-    androidx = [
-            coreKtx           : "androidx.core:core-ktx:$coreKtxVersion",
-            appCompat         : "androidx.appcompat:appcompat:$appCompatVersion",
-            constraintlayout  : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
-            lifecycleExt      : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensions",
-            lifecycleLiveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleLivedataKtx",
-            lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleViewModelKtx",
-            navigationFragment: "androidx.navigation:navigation-fragment-ktx:$navigationFragmentKtx",
-            navigationUi      : "androidx.navigation:navigation-ui-ktx:$navigationUiKtx",
-            activityKtx       : "androidx.activity:activity-ktx:$activityKtx",
+    coroutineLibraries = [
+            coroutinesCore        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
+            coroutinesAndroid     : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
+            coroutinesPlayServices: "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines"
     ]
 
-    google = [
-            material: "com.google.android.material:material:$materialVersion"
+    databaseLibraries = [
+            roomRuntime : "androidx.room:room-runtime:$roomDb",
+            roomKtx     : "androidx.room:room-ktx:$roomDb",
+            roomCompiler: "androidx.room:room-compiler:$roomDb"
     ]
 
-    kotlin = [
-            kotlinxCoroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxCoroutinesVersion"
+    dependencyInjectionLibraries = [
+            hilt                  : "com.google.dagger:hilt-android-gradle-plugin:$hilt",
+            hiltAndroid           : "com.google.dagger:hilt-android:$hilt",
+            hiltAndroidCompiler   : "com.google.dagger:hilt-android-compiler:$hilt",
+            hiltLifecycleViewmodel: "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03",
+            hiltCompiler          : "androidx.hilt:hilt-compiler:$hiltLifecycle"
     ]
 
-    hilt = [
-            hiltAndroid            : "com.google.dagger:hilt-android:$hiltAndroidVersion",
-            kaptHiltAndroidCompiler: "com.google.dagger:hilt-android-compiler:$kaptHiltAndroidCompilerVersion",
-            kaptHiltCompiler       : "androidx.hilt:hilt-compiler:$kaptHiltCompilerVersion",
-            hiltViewModel          : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifecycleViewModelVersion"
+    imageLibraries = [
+            glide: "com.github.bumptech.glide:glide:$glide"
     ]
 
-    network = [
-            retrofit                : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofitGsonConverter   : "com.squareup.retrofit2:converter-gson:$retrofitConverterGsonVersion",
-            okhttp                  : "com.squareup.okhttp3:okhttp:$okhttpVersion",
-            okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
+    lifeCycleLibraries = [
+            liveData          : "androidx.lifecycle:lifecycle-livedata-ktx:$liveData",
+            lifeCycleExtension: "androidx.lifecycle:lifecycle-extensions:2.2.0",
+            viewmodel         : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     ]
 
-    testing = [
-            unitTestingCore       : "androidx.arch.core:core-testing:$testCore",
-            unitTestingCoroutines : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$testKotlinxCoroutines",
-            unitTestingMockitoCore: "org.mockito:mockito-core:$testMockitoCore",
-            unitTestingJunit      : "junit:junit:$testJunit",
-            uiTestingJunit        : "androidx.test.ext:junit:$androidTestJunit",
-            uiTestingEspresso     : "androidx.test.espresso:espresso-core:$androidTestEspressoCore"
+    navigationLibraries = [
+            navigation  : "androidx.navigation:navigation-fragment-ktx:$navigation",
+            navigationUi: "androidx.navigation:navigation-ui-ktx:$navigation"
     ]
-    others = [
 
+    networkLibraries = [
+            retrofit          : "com.squareup.retrofit2:retrofit:$retrofit",
+            converterGson     : "com.squareup.retrofit2:converter-gson:$retrofit",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:4.9.1",
+            converterScalars  : "com.squareup.retrofit2:converter-scalars:$retrofit",
+            gson              : "com.google.code.gson:gson:$gson"
+    ]
+
+    supportDependencies = [
+            coreKtx         : "androidx.core:core-ktx:$coreKtx",
+            appCompat       : "androidx.appcompat:appcompat:$appCompat",
+            material        : "com.google.android.material:material:$material",
+            constraintlayout: "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    ]
+
+    testLibraries = [
+            junit: "junit:junit:$junit"
     ]
 }

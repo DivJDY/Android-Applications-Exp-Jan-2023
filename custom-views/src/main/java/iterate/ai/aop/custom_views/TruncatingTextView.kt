@@ -1,4 +1,4 @@
-package iterate.ai.aop.customviews
+package iterate.ai.aop.custom_views
 
 import android.content.Context
 import android.graphics.Typeface
@@ -10,7 +10,6 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import androidx.appcompat.widget.AppCompatTextView
-import iterate.ai.aop.R
 
 class TruncatingTextView : AppCompatTextView {
 

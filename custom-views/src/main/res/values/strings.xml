@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_more">View More</string>
+    <string name="show_less">View Less</string>
+    <string name="ellipsis">...</string>
+</resources>
