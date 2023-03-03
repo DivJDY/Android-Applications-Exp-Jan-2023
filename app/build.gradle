@@ -66,6 +66,8 @@ android {
 dependencies {
 
     implementation project(':custom-views')
+    implementation project(':data')
+    implementation project(':player')
 
     implementation supportDependencies.coreKtx
     implementation supportDependencies.appCompat

@@ -13,6 +13,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/custom-views" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/mock" />
+            <option value="$PROJECT_DIR$/player" />
           </set>
         </option>
       </GradleProjectSettings>
