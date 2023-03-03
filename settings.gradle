@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Aop"
 include ':app'
+include ':custom-views'
+include ':player'
+include ':mock'
+include ':data'

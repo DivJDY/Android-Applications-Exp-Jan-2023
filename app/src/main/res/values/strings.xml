@@ -5,7 +5,20 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
 
     <!--  Screens name-->
-    <string name="home_screen_title">Academy Of Pop</string>
+    <string name="home_screen_title">A C A D E M Y  O F  P O P</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--  Home Screen-->
+    <string name="bookmark_text">10K</string>
+    <string name="home_screen_title1">5th take’s the charm. #danceclass #fluid #lesson2 #groove</string>
+    <string name="comments_text">20K</string>
+    <string name="learn_it_button_text">Learn It</string>
+    <string name="try_it_button_text">Try It</string>
+    <string name="bottom_navigation_home">Home</string>
+    <string name="bottom_navigation_discover">Discover</string>
+    <string name="bottom_navigation_new_post">Add</string>
+    <string name="bottom_navigation_course">Course</string>
+    <string name="bottom_navigation_profile">Profile</string>
 
 </resources>
