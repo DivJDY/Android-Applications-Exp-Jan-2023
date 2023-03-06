@@ -18,7 +18,7 @@
     <item
         android:id="@+id/navigation_learn"
         android:icon="@drawable/icon_learn_default"
-        android:title="@string/bottom_navigation_course"/>
+        android:title="@string/bottom_navigation_learn"/>
 
     <item
         android:id="@+id/navigation_profile"

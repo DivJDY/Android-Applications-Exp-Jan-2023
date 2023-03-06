@@ -14,9 +14,9 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
 
     fun getContent() {
         val videoURL2 =
-            "https://d1ryd0htvizsmh.cloudfront.net/out/v1/7bd9b9a4143042f694c6351cbfbfd16e/b893b9d2d65c4c27bc05c6e69eac903c/b628c357315e4a39b6e16691a06358d9/index.m3u8"
+            "https://d1ryd0htvizsmh.cloudfront.net/out/v1/a05040e5585940f5a3258249a4e4b931/b893b9d2d65c4c27bc05c6e69eac903c/b628c357315e4a39b6e16691a06358d9/index.m3u8"
         val videoURL =
-            "https://d1ryd0htvizsmh.cloudfront.net/out/v1/38377fb93a294bfc937d21406bb00cb7/b893b9d2d65c4c27bc05c6e69eac903c/b628c357315e4a39b6e16691a06358d9/index.m3u8"
+            "https://d1ryd0htvizsmh.cloudfront.net/out/v1/a0c456c2723b4e08a64b01e562aadc41/b893b9d2d65c4c27bc05c6e69eac903c/b628c357315e4a39b6e16691a06358d9/index.m3u8"
 
         _content.value = listOf(
             videoURL, videoURL2, videoURL2, videoURL

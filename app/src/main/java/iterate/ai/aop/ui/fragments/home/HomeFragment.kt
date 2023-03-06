@@ -5,18 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.google.android.exoplayer2.ExoPlayer
 import dagger.hilt.android.AndroidEntryPoint
 import iterate.ai.aop.adapters.VideoViewListAdapter
 import iterate.ai.aop.databinding.FragmentHomeBinding
+import iterate.ai.aop.listeners.VideoInteractionListener
 import iterate.ai.aop.ui.fragments.BaseFragment
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), VideoInteractionListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
-    
+    private var exoPlayer: ExoPlayer? = null
+
     private var adapter: VideoViewListAdapter? = null
     private var listData: MutableList<String> = mutableListOf()
 
@@ -32,11 +35,65 @@ class HomeFragment : BaseFragment() {
         initViews()
         initObservers()
     }
-    
+
+    override fun onDestroyView() {
+        exoPlayer?.release()
+        exoPlayer = null
+        _binding = null
+        super.onDestroyView()
+    }
+
+    override fun onStarClicked(isEnabled: Boolean) {
+        // TODO: call API call
+    }
+
+    override fun onBookmarkClicked(isEnabled: Boolean) {
+        // TODO: call API call
+    }
+
+    override fun onShareClicked() {
+        // TODO: call API call
+    }
+
+    override fun onProfileClicked() {
+        // TODO: open user profile
+    }
+
+    override fun onVideoClicked() {
+        exoPlayer?.let {
+            if (it.isPlaying) {
+                it.pause()
+            } else {
+                it.play()
+            }
+        }
+    }
+
+    override fun onLearnClicked() {
+        // TODO: open screen
+    }
+
+    override fun onTryClicked() {
+        // TODO: open screen
+    }
+
+    override fun onDescriptionExpanded() {
+        // TODO: add analytics
+    }
+
+    override fun onDescriptionCollapsed() {
+        // TODO: add analytics
+    }
+
     private fun initViews() {
-        adapter = VideoViewListAdapter(listData)
-        binding.viewPager.adapter = adapter
-        viewModel.getContent()
+        exoPlayer = ExoPlayer.Builder(requireContext()).build().apply {
+            playWhenReady = true
+        }
+        exoPlayer?.let {
+            adapter = VideoViewListAdapter(listData, it, this)
+            binding.viewPager.adapter = adapter
+            viewModel.getContent()
+        }
     }
 
     private fun initObservers() {

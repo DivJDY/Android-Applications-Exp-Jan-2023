@@ -10,12 +10,14 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import androidx.appcompat.widget.AppCompatTextView
+import iterate.ai.aop.custom_views.listeners.OnTruncatingTextViewListener
 
 class TruncatingTextView : AppCompatTextView {
 
     private var fullText: CharSequence = ""
     private var initialMaxLines: Int = 0
     private var allowedMaxLines: Int = 1
+    private var listener: OnTruncatingTextViewListener? = null
 
     constructor(context: Context) : super(context) {
         init()
@@ -67,6 +69,7 @@ class TruncatingTextView : AppCompatTextView {
 
             setClickable(actionString, {
                 collapse()
+                listener?.onCollapseClicked()
             })
         }
     }
@@ -94,6 +97,7 @@ class TruncatingTextView : AppCompatTextView {
                 text = truncatedSpannableString
 
                 setClickable(moreString, {
+                    listener?.onExpandClicked()
                     expand()
                 })
             }
@@ -118,7 +122,7 @@ class TruncatingTextView : AppCompatTextView {
         text = span
     }
 
-    class ClickHandler(
+    private class ClickHandler(
         private val handler: () -> Unit, private val drawUnderline: Boolean
     ) : ClickableSpan() {
         override fun onClick(widget: View) {
@@ -132,5 +136,9 @@ class TruncatingTextView : AppCompatTextView {
                 ds.isUnderlineText = false
             }
         }
+    }
+
+    fun setListener(listener: OnTruncatingTextViewListener) {
+        this.listener = listener
     }
 }

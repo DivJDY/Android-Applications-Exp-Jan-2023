@@ -28,11 +28,11 @@
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/video_description_tv"
-        app:layout_constraintStart_toStartOf="@+id/video_description_tv" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_video_description"
+        app:layout_constraintStart_toStartOf="@+id/tv_video_description" />
 
     <iterate.ai.aop.custom_views.TruncatingTextView
-        android:id="@+id/video_description_tv"
+        android:id="@+id/tv_video_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -41,68 +41,49 @@
         android:textColor="@color/white"
         android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@id/barrier_cta"
-        app:layout_constraintEnd_toStartOf="@id/user_profile_iv"
+        app:layout_constraintEnd_toStartOf="@id/iv_profile"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/bookmark_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+    <ToggleButton
+        android:id="@+id/button_star"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/bookmark_text_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/star_8__stroke_"
-        app:tint="@android:color/white" />
+        android:background="@drawable/star_button_background"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toTopOf="@+id/button_bookmark"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/bookmark_text_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ToggleButton
+        android:id="@+id/button_bookmark"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginBottom="22dp"
-        android:text="@string/bookmark_text"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@id/comments_iv"
+        android:background="@drawable/bookmark_button_background"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toTopOf="@+id/button_share"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/comments_iv"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:id="@+id/button_share"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/comments_text_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/icon_bookmark_outline"
-        app:tint="@android:color/white" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/comments_text_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="22dp"
-        android:text="@string/comments_text"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@id/share_iv"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/share_iv"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/user_profile_iv"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/icon_share_solid_default"
         app:tint="@android:color/white" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/user_profile_iv"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:id="@+id/iv_profile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -116,10 +97,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="top"
-        app:constraint_referenced_ids="learn_it_button, try_it_button" />
+        app:constraint_referenced_ids="button_learn, button_try" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/learn_it_button"
+        android:id="@+id/button_learn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -132,7 +113,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/try_it_button"
+        android:id="@+id/button_try"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
