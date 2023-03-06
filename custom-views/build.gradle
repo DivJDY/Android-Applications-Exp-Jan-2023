@@ -6,7 +6,7 @@ plugins {
 apply from: "../dependencies.gradle"
 
 android {
-    namespace 'iterate.ai.aop.custom_views'
+    namespace 'com.aop.interplay.custom_views'
     compileSdk 33
 
     defaultConfig {

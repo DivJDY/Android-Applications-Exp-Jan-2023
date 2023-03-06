@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_video_description"
         app:layout_constraintStart_toStartOf="@+id/tv_video_description" />
 
-    <iterate.ai.aop.custom_views.TruncatingTextView
+    <com.aop.interplay.custom_views.TruncatingTextView
         android:id="@+id/tv_video_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
