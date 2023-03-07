@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.aop.interplay">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name="com.aop.interplay.MyApplication"
@@ -17,26 +17,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aop"
         tools:targetApi="31">
-
         <activity
-            android:name="com.aop.interplay.MainActivity"
-            android:exported="true"
-            android:label="${appLabel}" >
-
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
+        
+        <activity
+            android:name="com.aop.interplay.MainActivity"
+            android:label="${appLabel}" />
 
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />
-
-
     </application>
 
 </manifest>

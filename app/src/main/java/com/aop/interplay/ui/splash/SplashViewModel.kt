@@ -1,4 +1,4 @@
-package com.aop.interplay.ui.fragments.splashscreen
+package com.aop.interplay.ui.splash
 
 import android.net.Uri
 import dagger.hilt.android.lifecycle.HiltViewModel

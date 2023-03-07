@@ -1,4 +1,4 @@
-package com.aop.interplay.ui.fragments.discover
+package com.aop.interplay.ui.fragments.newpost
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import com.aop.interplay.ui.fragments.BaseFragment
 
 @AndroidEntryPoint
-class DiscoverFragment : BaseFragment() {
+class NewpostFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_discover, container, false)
+        return inflater.inflate(R.layout.fragment_newpost, container, false)
     }
 }
