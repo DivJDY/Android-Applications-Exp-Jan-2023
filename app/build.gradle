@@ -68,6 +68,7 @@ dependencies {
     implementation project(':custom-views')
     implementation project(':data')
     implementation project(':player')
+    implementation project(':network')
 
     implementation supportDependencies.coreKtx
     implementation supportDependencies.appCompat

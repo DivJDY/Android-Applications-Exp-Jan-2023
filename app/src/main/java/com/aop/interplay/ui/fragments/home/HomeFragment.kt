@@ -92,7 +92,7 @@ class HomeFragment : BaseFragment(), VideoInteractionListener {
         exoPlayer?.let {
             adapter = VideoViewListAdapter(listData, it, this)
             binding.viewPager.adapter = adapter
-            viewModel.getContent()
+            viewModel.getHomeVideos()
         }
     }
 
