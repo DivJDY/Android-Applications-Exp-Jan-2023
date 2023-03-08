@@ -46,7 +46,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <iterate.ai.aop.player.PlayerView
+    <com.aop.interplay.player.PlayerView
         android:id="@+id/playerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

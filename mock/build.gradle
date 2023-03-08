@@ -6,7 +6,7 @@ plugins {
 apply from: "../dependencies.gradle"
 
 android {
-    namespace 'iterate.ai.aop.mock'
+    namespace 'com.aop.interplay.mock'
     compileSdk 33
 
     defaultConfig {

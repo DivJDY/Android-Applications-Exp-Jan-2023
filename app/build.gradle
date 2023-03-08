@@ -11,11 +11,11 @@ plugins {
 apply from: "../dependencies.gradle"
 
 android {
-    namespace 'iterate.ai.aop'
+    namespace 'com.aop.interplay'
     compileSdk 33
 
     defaultConfig {
-        applicationId "iterate.ai.aop"
+        applicationId "com.aop.interplay"
         minSdk 21
         targetSdk 33
         versionCode 1
@@ -47,7 +47,7 @@ android {
             manifestPlaceholders = [appLabel: "AOP_stage"]
         }
         prod {
-            applicationId "iterate.ai.aop"
+            applicationId "com.aop.interplay"
             manifestPlaceholders = [appLabel: "AOP"]
         }
     }

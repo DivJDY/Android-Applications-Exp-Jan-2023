@@ -6,7 +6,7 @@ plugins {
 apply from: "../dependencies.gradle"
 
 android {
-    namespace 'iterate.ai.aop.data'
+    namespace 'com.aop.interplay.data'
     compileSdk 33
 
     defaultConfig {
