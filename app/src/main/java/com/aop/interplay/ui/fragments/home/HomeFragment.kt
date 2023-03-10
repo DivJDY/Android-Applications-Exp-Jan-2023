@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import com.google.android.exoplayer2.ExoPlayer
 import dagger.hilt.android.AndroidEntryPoint
 import com.aop.interplay.adapters.VideoViewListAdapter
+import com.aop.interplay.data.network.HomePost
 import com.aop.interplay.databinding.FragmentHomeBinding
 import com.aop.interplay.listeners.VideoInteractionListener
 import com.aop.interplay.ui.fragments.BaseFragment
@@ -21,7 +22,7 @@ class HomeFragment : BaseFragment(), VideoInteractionListener {
     private var exoPlayer: ExoPlayer? = null
 
     private var adapter: VideoViewListAdapter? = null
-    private var listData: MutableList<String> = mutableListOf()
+    private var listData: MutableList<HomePost> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

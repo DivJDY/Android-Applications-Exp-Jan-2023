@@ -9,11 +9,12 @@ import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
 import com.aop.interplay.custom_views.listeners.OnTruncatingTextViewListener
+import com.aop.interplay.data.network.HomePost
 import com.aop.interplay.databinding.AdapterVideoViewItemBinding
 import com.aop.interplay.listeners.VideoInteractionListener
 
 class VideoViewListAdapter(
-    private val videosList: List<String>,
+    private val videosList: List<HomePost>,
     private val exoPlayer: ExoPlayer,
     private val videoInteractionListener: VideoInteractionListener
 ) : RecyclerView.Adapter<VideoViewListAdapter.VideoViewViewHolder>() {
@@ -31,7 +32,12 @@ class VideoViewListAdapter(
     }
 
     override fun onBindViewHolder(holder: VideoViewViewHolder, position: Int) {
+        val item = videosList[position]
         with(holder.viewBinding) {
+
+            tvUserName.text = item.userName
+            tvVideoDescription.text = item.description
+
             playerViewFrameLayout.setOnClickListener {
                 videoInteractionListener.onVideoClicked()
             }
@@ -77,7 +83,7 @@ class VideoViewListAdapter(
         with(holder) {
             val dataSourceFactory: DataSource.Factory = DefaultHttpDataSource.Factory()
             val hlsMediaSource = HlsMediaSource.Factory(dataSourceFactory)
-                .createMediaSource(MediaItem.fromUri(videosList[holder.adapterPosition]))
+                .createMediaSource(MediaItem.fromUri(videosList[holder.adapterPosition].url))
 
             exoPlayer.setMediaSource(hlsMediaSource)
             exoPlayer.prepare()
