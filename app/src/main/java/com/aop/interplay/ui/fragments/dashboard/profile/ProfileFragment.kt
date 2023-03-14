@@ -1,4 +1,4 @@
-package com.aop.interplay.ui.fragments.profile
+package com.aop.interplay.ui.fragments.dashboard.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater

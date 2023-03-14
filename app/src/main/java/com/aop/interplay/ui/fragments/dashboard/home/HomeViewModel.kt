@@ -1,4 +1,4 @@
-package com.aop.interplay.ui.fragments.home
+package com.aop.interplay.ui.fragments.dashboard.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val networkRepository: NetworkRepository
-) : BaseViewModel() {
+) : BaseViewModel(networkRepository) {
 
     private val _content: MutableLiveData<List<HomePost>> = MutableLiveData()
     val content: LiveData<List<HomePost>> = _content

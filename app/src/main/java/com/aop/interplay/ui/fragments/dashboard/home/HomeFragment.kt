@@ -1,4 +1,4 @@
-package com.aop.interplay.ui.fragments.home
+package com.aop.interplay.ui.fragments.dashboard.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

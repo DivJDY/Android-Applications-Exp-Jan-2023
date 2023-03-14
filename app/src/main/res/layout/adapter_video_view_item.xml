@@ -86,9 +86,14 @@
         android:layout_marginEnd="@dimen/spacing_xxxl"
         android:layout_marginBottom="@dimen/spacing_s"
         app:layout_constraintBottom_toTopOf="@id/barrier_cta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ellipse_35"
-        app:tint="@android:color/white" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_add_friend_default"
+        app:layout_constraintBottom_toBottomOf="@id/iv_profile"
+        app:layout_constraintEnd_toEndOf="@id/iv_profile" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_cta"

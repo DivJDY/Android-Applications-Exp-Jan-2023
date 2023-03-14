@@ -1,4 +1,4 @@
-package com.aop.interplay.ui.fragments.discover
+package com.aop.interplay.ui.fragments.dashboard.discover
 
 import android.os.Bundle
 import android.view.LayoutInflater
