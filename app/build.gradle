@@ -1,3 +1,5 @@
+import java.util.regex.Pattern
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -18,7 +20,7 @@ android {
         applicationId "com.aop.interplay"
         minSdk 21
         targetSdk 33
-        versionCode 1
+        versionCode versionCode
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -61,6 +63,25 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    task('increaseVersionCode') {
+        doLast {
+            def manifestFile = file("src/main/AndroidManifest.xml")
+            def pattern = Pattern.compile("versionCode=\"(\\d+)\"")
+            def manifestText = manifestFile.getText()
+            def matcher = pattern.matcher(manifestText)
+            matcher.find()
+            def versionCode = Integer.parseInt(matcher.group(1))
+            def manifestContent = matcher.replaceAll("versionCode=\"" + ++versionCode + "\"")
+            manifestFile.write(manifestContent)
+        }
+    }
+
+    tasks.whenTaskAdded { task ->
+        if (task.name == 'generateReleaseBuildConfig') {
+            task.dependsOn 'increaseVersionCode'
+        }
+    }
 }
 
 dependencies {
@@ -68,6 +89,7 @@ dependencies {
     implementation project(':custom-views')
     implementation project(':data')
     implementation project(':player')
+    implementation project(':network')
 
     implementation supportDependencies.coreKtx
     implementation supportDependencies.appCompat

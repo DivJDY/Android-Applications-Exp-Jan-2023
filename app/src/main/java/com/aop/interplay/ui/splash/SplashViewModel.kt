@@ -1,15 +1,11 @@
 package com.aop.interplay.ui.splash
 
-import android.net.Uri
-import dagger.hilt.android.lifecycle.HiltViewModel
-import com.aop.interplay.BuildConfig
-import com.aop.interplay.R
+import com.aop.interplay.network.remote.NetworkRepository
 import com.aop.interplay.ui.fragments.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SplashViewModel @Inject constructor() : BaseViewModel() {
-
-    fun getPathUri(): Uri =
-        Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.splash_screen)
-}
+class SplashViewModel @Inject constructor(
+    networkRepository: NetworkRepository
+) : BaseViewModel(networkRepository)

@@ -6,7 +6,7 @@ plugins {
 apply from: "../dependencies.gradle"
 
 android {
-    namespace 'com.aop.interplay.mock'
+    namespace 'com.aop.interplay.networkmock'
     compileSdk 33
 
     defaultConfig {
