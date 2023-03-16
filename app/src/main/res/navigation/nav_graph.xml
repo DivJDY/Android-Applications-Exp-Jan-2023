@@ -9,4 +9,24 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.aop.interplay.ui.fragments.dashboard.DashboardFragment"
         tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_signup"
+        android:name="com.aop.interplay.ui.fragments.signup.SignUpFragment"
+        tools:layout="@layout/fragment_sign_up"></fragment>
+
+    <fragment
+        android:id="@+id/navigation_signupMobile"
+        android:name="com.aop.interplay.ui.fragments.signup.SignUpWithMobileNumberFragment"
+        tools:layout="@layout/fragment_sign_up_with_mobile_number"></fragment>
+
+    <fragment
+        android:id="@+id/navigation_termsCondition"
+        android:name="com.aop.interplay.ui.fragments.signup.TermsOfServiceFragment"
+        tools:layout="@layout/fragment_terms_of_service"></fragment>
+
+    <fragment
+        android:id="@+id/navigation_privacyPolicy"
+        android:name="com.aop.interplay.ui.fragments.signup.PrivacyPolicyFragment"
+        tools:layout="@layout/fragment_privacy_policy"></fragment>
 </navigation>

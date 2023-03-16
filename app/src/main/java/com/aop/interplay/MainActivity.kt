@@ -2,6 +2,7 @@ package com.aop.interplay
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.aop.interplay.databinding.ActivityMainBinding
@@ -18,5 +19,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Navigation.findNavController(this@MainActivity, R.id.nav_host_fragment_activity_main)
+            .navigate(R.id.navigation_signup)
+
     }
 }

@@ -35,4 +35,14 @@
     <dimen name="min_button_size">100dp</dimen>
     <dimen name="button_size">100dp</dimen>
     <dimen name="button_radius">8dp</dimen>
+
+
+
+    <!--SignUp Screen-->
+    <dimen name="signUp_title_size">32sp</dimen>
+    <dimen name="signUp_title_height">42sp</dimen>
+    <dimen name="signUp_btn_size">20sp</dimen>
+    <dimen name="signUp_btn_height">24sp</dimen>
+    <dimen name="disclaimerTxtSize">14sp</dimen>
+    <dimen name="disclaimerTxtHeight">24sp</dimen>
 </resources>

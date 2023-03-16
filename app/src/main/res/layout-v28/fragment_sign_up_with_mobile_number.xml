@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/bgColor"
+tools:context=".ui.fragments.signup.SignUpWithMobileNumberFragment">
+
+<LinearLayout
+    android:id="@+id/signUpLinearId"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.055">
+
+    <ImageButton
+        android:id="@+id/btnNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="@null"
+        android:contentDescription="TODO"
+        android:gravity="left"
+        android:onClick="signUpBackTo"
+        android:src="@drawable/post_for_you_back_stack"
+        tools:ignore="ContentDescription,HardcodedText,RtlHardcoded,SpeakableTextPresentCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/brandon_grotesque_light"
+        android:gravity="center"
+        android:lineHeight="26sp"
+        android:paddingStart="-80dp"
+        android:scaleType="fitXY"
+        android:text="@string/signUp"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="24sp"
+        tools:ignore="RtlSymmetry" />
+</LinearLayout>
+
+
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:lineHeight="30sp"
+    android:text="@string/signUpTxt"
+    android:textColor="@color/white"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/signUpLinearId"
+    app:layout_constraintVertical_bias="0.071" />
+
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:lineHeight="20sp"
+    android:text="@string/signUpMobileTxt"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView"
+    app:layout_constraintVertical_bias="0.056" />
+
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/signUpMobileInputLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:hint="Mobile Number"
+    android:showDividers="end"
+    app:boxStrokeWidth="2dp"
+    app:counterMaxLength="10"
+    app:endIconMode="clear_text"
+    app:endIconTint="@color/white"
+    app:errorEnabled="false"
+    app:errorTextColor="@color/white"
+    app:helperText="Required *"
+    app:helperTextTextColor="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.266"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView2"
+    app:layout_constraintVertical_bias="0.142"
+    tools:ignore="HardcodedText">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/signUpMobileInputNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="true"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:maxLength="10"
+        android:minHeight="35dp"
+        android:phoneNumber="true"
+        android:shadowColor="@color/purple_700"
+        android:singleLine="true"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/white"
+        tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+</com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/signUpNextMobileId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/signUpBtnInactive"
+        android:text="Next"
+        android:textColor="#424242"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpMobileInputLayout"
+        app:layout_constraintVertical_bias="0.129"
+        tools:ignore="HardcodedText,VisualLintButtonSize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
