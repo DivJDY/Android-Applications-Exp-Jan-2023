@@ -1,13 +1,12 @@
 package com.aop.interplay.ui.fragments.signup
 
-import android.annotation.SuppressLint
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.webkit.WebSettings
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
 import com.aop.interplay.databinding.FragmentTermsOfServiceBinding
@@ -17,30 +16,44 @@ class TermsOfServiceFragment : Fragment(R.layout.fragment_terms_of_service) {
     private lateinit var binding: FragmentTermsOfServiceBinding
     private lateinit var btnNav:ImageButton
     private lateinit var termsOfServiceWebViewId:WebView
+    private lateinit var webViewProgressBar:ProgressBar
 
-    @SuppressLint("SetJavaScriptEnabled")
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding=FragmentTermsOfServiceBinding.bind(view)
         btnNav=binding.btnNav
         termsOfServiceWebViewId=binding.termsOfServiceWebViewId
+        webViewProgressBar=binding.webViewProgressBar
 
 //        Back stack navigation
         btnNav.setOnClickListener {
             findNavController().navigate(R.id.navigation_signup)
         }
 
-//        Web view
-        termsOfServiceWebViewId.loadUrl("https://dev-aop.interplayapps.iterate.ai/terms-of-use")
-
-        // Enable Javascript
-        val webSettings: WebSettings = termsOfServiceWebViewId.settings
-        webSettings.javaScriptEnabled = true
-
-        // Force links and redirects to open in the WebView instead of in a browser
+        // Setting a webViewClient
         termsOfServiceWebViewId.webViewClient = WebViewClient()
+        // Loading a URL
+        termsOfServiceWebViewId.loadUrl("https://dev-aop.interplayapps.iterate.ai/terms-of-use")
 
     }
 
+
+
+    // Overriding WebViewClient functions
+    inner class WebViewClient : android.webkit.WebViewClient() {
+        // Load the URL
+        @Deprecated("Deprecated in Java")
+        override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+            view.loadUrl(url)
+            return false
+        }
+
+        // ProgressBar will disappear once page is loaded
+        override fun onPageFinished(view: WebView, url: String) {
+            super.onPageFinished(view, url)
+            webViewProgressBar.visibility = View.GONE
+        }
+    }
 
 }

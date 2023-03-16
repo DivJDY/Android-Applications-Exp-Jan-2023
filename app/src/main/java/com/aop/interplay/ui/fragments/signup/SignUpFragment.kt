@@ -54,9 +54,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         spannableString.setSpan(clickableSpan2, 88, 102, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         textView3.setText(spannableString, TextView.BufferType.SPANNABLE)
         textView3.movementMethod = LinkMovementMethod.getInstance()
-
     }
-
-
 
 }
