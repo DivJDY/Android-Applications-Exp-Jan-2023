@@ -2,46 +2,46 @@ package com.aop.interplay.ui.fragments.signup
 
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.WebView
-import android.widget.ImageButton
-import android.widget.ProgressBar
+import android.webkit.WebViewClient
 import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
 import com.aop.interplay.databinding.FragmentTermsOfServiceBinding
 
 
 class TermsOfServiceFragment : Fragment(R.layout.fragment_terms_of_service) {
-    private lateinit var binding: FragmentTermsOfServiceBinding
-    private lateinit var btnNav:ImageButton
-    private lateinit var termsOfServiceWebViewId:WebView
-    private lateinit var webViewProgressBar:ProgressBar
+    private var _binding: FragmentTermsOfServiceBinding? = null
+    private val termsOfUse = "https://dev-aop.interplayapps.iterate.ai/terms-of-use"
+    private val webViewTitle = "Terms Of Use"
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        return inflater.inflate(R.layout.fragment_terms_of_service, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding=FragmentTermsOfServiceBinding.bind(view)
-        btnNav=binding.btnNav
-        termsOfServiceWebViewId=binding.termsOfServiceWebViewId
-        webViewProgressBar=binding.webViewProgressBar
+        _binding = FragmentTermsOfServiceBinding.bind(view)
 
-//        Back stack navigation
-        btnNav.setOnClickListener {
+        _binding!!.termsOfUseId.topNavHandleId.btnNav.setOnClickListener {
             findNavController().navigate(R.id.navigation_signup)
         }
-
         // Setting a webViewClient
-        termsOfServiceWebViewId.webViewClient = WebViewClient()
+        _binding!!.termsOfUseId.webViewId.webViewClient = MyWebViewClient()
         // Loading a URL
-        termsOfServiceWebViewId.loadUrl("https://dev-aop.interplayapps.iterate.ai/terms-of-use")
+        _binding!!.termsOfUseId.webViewId.loadUrl(termsOfUse)
 
+        _binding!!.termsOfUseId.topNavHandleId.webViewTitleId.text = webViewTitle
     }
 
-
-
-    // Overriding WebViewClient functions
-    inner class WebViewClient : android.webkit.WebViewClient() {
+    inner class MyWebViewClient : WebViewClient() {
         // Load the URL
         @Deprecated("Deprecated in Java")
         override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -52,8 +52,7 @@ class TermsOfServiceFragment : Fragment(R.layout.fragment_terms_of_service) {
         // ProgressBar will disappear once page is loaded
         override fun onPageFinished(view: WebView, url: String) {
             super.onPageFinished(view, url)
-            webViewProgressBar.visibility = View.GONE
+            _binding!!.termsOfUseId.webViewProgressBarId.visibility = View.GONE
         }
     }
-
 }

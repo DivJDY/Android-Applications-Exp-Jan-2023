@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        Navigation.findNavController(this@MainActivity, R.id.nav_host_fragment_activity_main)
-//            .navigate(R.id.navigation_signup)
+        Navigation.findNavController(this@MainActivity, R.id.nav_host_fragment_activity_main)
+            .navigate(R.id.navigation_signup)
 
     }
 }

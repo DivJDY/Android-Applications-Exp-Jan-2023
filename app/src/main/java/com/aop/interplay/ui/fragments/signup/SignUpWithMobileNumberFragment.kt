@@ -1,63 +1,51 @@
-@file:Suppress("DEPRECATION")
-
 package com.aop.interplay.ui.fragments.signup
 
-
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
 import com.aop.interplay.databinding.FragmentSignUpWithMobileNumberBinding
-import com.google.android.material.textfield.TextInputEditText
+import com.aop.interplay.ui.fragments.BaseFragment
 
 
-class SignUpWithMobileNumberFragment : Fragment(R.layout.fragment_sign_up_with_mobile_number) {
-
+class SignUpWithMobileNumberFragment : BaseFragment() {
     private lateinit var binding: FragmentSignUpWithMobileNumberBinding
-    private lateinit var signUpMobileInputNumber: TextInputEditText
-    private lateinit var signUpNextMobileId: Button
-    private lateinit var btnNav: ImageButton
+    private var title = "Sign Up"
 
-    @SuppressLint("UseCompatLoadingForColorStateLists")
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        return inflater.inflate(R.layout.fragment_sign_up_with_mobile_number, container, false)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSignUpWithMobileNumberBinding.bind(view)
-        signUpMobileInputNumber = binding.signUpMobileInputNumber
-        binding.signUpMobileInputLayout
-        signUpNextMobileId = binding.signUpNextMobileId
-        btnNav = binding.btnNav
-
-        signUpMobileInputNumber.setOnClickListener {
-            print("Message  == "+ isValidateMobileNumber())
+        binding.topNavHandleId.webViewTitleId.text = title
+        binding.signUpMobileInputNumber.setOnClickListener {
+            print("Message  == " + isValidateMobileNumber())
             if (isValidateMobileNumber()) {
                 Toast.makeText(
                     activity,
-                    "Valid phone number " + signUpMobileInputNumber.length() + " digits",
+                    "Valid phone number " + binding.signUpMobileInputNumber.length() + " digits",
                     Toast.LENGTH_SHORT
                 ).show()
-                signUpNextMobileId.backgroundTintList =
+                binding.signUpNextMobileId.backgroundTintList =
                     resources.getColorStateList(R.color.signUpBtn)
-                signUpNextMobileId.setTextColor(resources.getColorStateList(R.color.black))
+                binding.signUpNextMobileId.setTextColor(resources.getColorStateList(R.color.black))
             }
         }
 
-
-        btnNav.setOnClickListener {
+        binding.topNavHandleId.btnNav.setOnClickListener {
             findNavController().navigate(R.id.navigation_signup)
         }
-
     }
 
-    private fun isValidateMobileNumber(): Boolean {
-        if (signUpMobileInputNumber.length() == 10) {
-            return true
-        }
-        return false
-    }
-
+    //   input Validation
+    private fun isValidateMobileNumber() = binding.signUpMobileInputNumber.length() == 10
 }

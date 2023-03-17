@@ -42,5 +42,6 @@
     <string name="disclaimerTxt">By continuing, you agree to our Terms of Service and acknowledge that you have read our Privacy Policy.</string>
     <string name="termsOfService">TERMS OF SERVICE</string>
     <string name="privacyPolicy">PRIVACY POLICY</string>
+    <string name="backStackTitle">Title</string>
 
 </resources>
