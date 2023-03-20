@@ -48,4 +48,10 @@
         <item name="android:textColor">@color/text_color</item>
         <item name="cornerRadius">@dimen/button_radius</item>
     </style>
+
+
+<!--    SignUp mobile number-->
+    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">
+        <item name="colorControlActivated">@color/white</item>
+    </style>
 </resources>

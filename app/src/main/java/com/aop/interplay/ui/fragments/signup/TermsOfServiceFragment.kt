@@ -12,9 +12,10 @@ import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
 import com.aop.interplay.databinding.FragmentPrivacyPolicyBinding
 import com.aop.interplay.databinding.FragmentTermsOfServiceBinding
+import com.aop.interplay.ui.fragments.BaseFragment
 
 
-class TermsOfServiceFragment : Fragment(R.layout.fragment_terms_of_service) {
+class TermsOfServiceFragment : BaseFragment() {
     private var _binding: FragmentTermsOfServiceBinding? = null
     private val termsOfUse = "https://dev-aop.interplayapps.iterate.ai/terms-of-use"
     private val webViewTitle = "Terms Of Use"
@@ -31,18 +32,16 @@ class TermsOfServiceFragment : Fragment(R.layout.fragment_terms_of_service) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentTermsOfServiceBinding.bind(view)
-
-        _binding!!.termsOfUseId.topNavHandleId.btnNav.setOnClickListener {
+        _binding?.termsOfUseId?.topNavHandleId?.btnNav?.setOnClickListener {
             findNavController().navigate(R.id.navigation_signup)
         }
-        webViewRunUrlAndTitle(termsOfUse,webViewTitle)
+        webViewRunUrlAndTitle(termsOfUse, webViewTitle)
     }
 
-    private fun webViewRunUrlAndTitle(url:String, title:String){
+    private fun webViewRunUrlAndTitle(url: String, title: String) {
         _binding?.termsOfUseId?.webViewId?.webViewClient = MyWebViewClient()
         // Loading a URL
         _binding?.termsOfUseId?.webViewId?.loadUrl(url)
-
         _binding?.termsOfUseId?.topNavHandleId?.webViewTitleId?.text = title
     }
 

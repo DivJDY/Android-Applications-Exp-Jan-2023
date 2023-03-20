@@ -29,4 +29,9 @@
         android:id="@+id/navigation_privacyPolicy"
         android:name="com.aop.interplay.ui.fragments.signup.PrivacyPolicyFragment"
         tools:layout="@layout/fragment_privacy_policy"></fragment>
+
+    <fragment
+        android:id="@+id/navigation_singUpMobileOtpVerify"
+        android:name="com.aop.interplay.ui.fragments.signup.SignUpMobileVerifyOtp"
+        tools:layout="@layout/fragment_sign_up_mobile_verify_otp"></fragment>
 </navigation>

@@ -40,6 +40,10 @@ class SignUpWithMobileNumberFragment : BaseFragment() {
         binding?.signUpNextMobileId?.setOnClickListener {
             val sixDigitOTP = Bundle()
             sixDigitOTP.putString("OTP", generateOTP().toString())
+            if(sixDigitOTP != null){
+                findNavController().navigate(R.id.navigation_singUpMobileOtpVerify, sixDigitOTP)
+                sixDigitOTP.remove("OTP")
+            }
         }
 
         binding?.mobileNumberId?.addTextChangedListener(object : TextWatcher {
@@ -56,6 +60,7 @@ class SignUpWithMobileNumberFragment : BaseFragment() {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
             }
 
             @RequiresApi(Build.VERSION_CODES.M)

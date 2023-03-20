@@ -23,7 +23,6 @@ class PrivacyPolicyFragment : BaseFragment() {
     ): View? {
         _binding = FragmentPrivacyPolicyBinding.inflate(inflater, container, false)
         return _binding?.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
