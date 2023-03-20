@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
 import com.aop.interplay.databinding.FragmentSignUpWithMobileNumberBinding
 import com.aop.interplay.ui.fragments.BaseFragment
+import kotlin.random.Random
 
 
 class SignUpWithMobileNumberFragment : BaseFragment() {
@@ -36,12 +37,10 @@ class SignUpWithMobileNumberFragment : BaseFragment() {
             findNavController().navigate(R.id.navigation_signup)
         }
 
-
         binding?.signUpNextMobileId?.setOnClickListener {
-            Log.d("Validate", "fail")
-
+            val sixDigitOTP = Bundle()
+            sixDigitOTP.putString("OTP", generateOTP().toString())
         }
-
 
         binding?.mobileNumberId?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -79,4 +78,13 @@ class SignUpWithMobileNumberFragment : BaseFragment() {
         return regex.matches(input)
     }
 
+
+    private fun generateOTP(): Int{
+        val random = Random(System.currentTimeMillis())
+        val min = 100_000
+        val max = 999_999
+        val randomOTP = random.nextInt(max - min + 1) + min
+        Log.d("Random Number ", randomOTP.toString())
+        return randomOTP
+    }
 }
