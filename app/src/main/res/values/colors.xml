@@ -15,11 +15,15 @@
     <color name="bgColor">#FF1E1E1E</color>
     <color name="textColor">#FF9D9D9D</color>
     <color name="btnBackground">#FF414141</color>
+    <color name="btnSuccess">#FF5FAFE2</color>
     <color name="descTextColor">#FFA5A5A5</color>
     <color name="viewMoreBtnColor">#FF5FAFE2</color>
     <color name="postSectionCardBgColor">#FF232326</color>
     <color name="signUpBtn">#FF5FAFE2</color>
     <color name="signUpBtnInactive">#FFB3B3B3</color>
     <color name="signUpBtnTxt">#FF675E5E</color>
+
+<!--    error color-->
+    <color name="errorColor">#FFEC324B</color>
 
 </resources>

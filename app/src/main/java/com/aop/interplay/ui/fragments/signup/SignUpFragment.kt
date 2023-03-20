@@ -47,8 +47,8 @@ class SignUpFragment : BaseFragment() {
 
     private fun makeTextSpanMove(navigation: Int, startInd: Int, endInd: Int) {
         spannableString.setSpan(clickableSpanLink(navigation), startInd, endInd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        binding?.textView3?.setText(spannableString, TextView.BufferType.SPANNABLE)
-        binding?.textView3?.movementMethod = LinkMovementMethod.getInstance()
+        binding?.disclaimerTxtId?.setText(spannableString, TextView.BufferType.SPANNABLE)
+        binding?.disclaimerTxtId?.movementMethod = LinkMovementMethod.getInstance()
     }
 }
 
