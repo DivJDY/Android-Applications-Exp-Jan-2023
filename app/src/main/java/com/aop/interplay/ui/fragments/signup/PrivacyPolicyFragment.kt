@@ -21,23 +21,27 @@ class PrivacyPolicyFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_privacy_policy, container, false)
+        _binding = FragmentPrivacyPolicyBinding.inflate(inflater, container, false)
+        return _binding?.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPrivacyPolicyBinding.bind(view)
 
-        _binding!!.privacyPolicyId.topNavHandleId.btnNav.setOnClickListener {
+        _binding?.privacyPolicyId?.topNavHandleId?.btnNav?.setOnClickListener {
             findNavController().navigate(R.id.navigation_signup)
         }
+        webViewRunUrlAndTitle(privacyPolicy,webViewTitle)
+    }
 
-        // Setting a webViewClient
-        _binding!!.privacyPolicyId.webViewId.webViewClient = MyWebViewClient()
+    private fun webViewRunUrlAndTitle(url:String, title:String){
+        _binding?.privacyPolicyId?.webViewId?.webViewClient = MyWebViewClient()
         // Loading a URL
-        _binding!!.privacyPolicyId.webViewId.loadUrl(privacyPolicy)
+        _binding?.privacyPolicyId?.webViewId?.loadUrl(url)
 
-        _binding!!.privacyPolicyId.topNavHandleId.webViewTitleId.text = webViewTitle
+        _binding?.privacyPolicyId?.topNavHandleId?.webViewTitleId?.text = title
     }
 
     inner class MyWebViewClient : WebViewClient() {
@@ -51,8 +55,7 @@ class PrivacyPolicyFragment : BaseFragment() {
         // ProgressBar will disappear once page is loaded
         override fun onPageFinished(view: WebView, url: String) {
             super.onPageFinished(view, url)
-            _binding!!.privacyPolicyId.webViewProgressBarId.visibility = View.GONE
+            _binding?.privacyPolicyId?.webViewProgressBarId?.visibility = View.GONE
         }
     }
-
 }

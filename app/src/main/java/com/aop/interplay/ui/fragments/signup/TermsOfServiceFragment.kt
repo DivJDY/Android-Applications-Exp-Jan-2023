@@ -10,6 +10,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
+import com.aop.interplay.databinding.FragmentPrivacyPolicyBinding
 import com.aop.interplay.databinding.FragmentTermsOfServiceBinding
 
 
@@ -23,7 +24,8 @@ class TermsOfServiceFragment : Fragment(R.layout.fragment_terms_of_service) {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_terms_of_service, container, false)
+        _binding = FragmentTermsOfServiceBinding.inflate(inflater, container, false)
+        return _binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,12 +35,15 @@ class TermsOfServiceFragment : Fragment(R.layout.fragment_terms_of_service) {
         _binding!!.termsOfUseId.topNavHandleId.btnNav.setOnClickListener {
             findNavController().navigate(R.id.navigation_signup)
         }
-        // Setting a webViewClient
-        _binding!!.termsOfUseId.webViewId.webViewClient = MyWebViewClient()
-        // Loading a URL
-        _binding!!.termsOfUseId.webViewId.loadUrl(termsOfUse)
+        webViewRunUrlAndTitle(termsOfUse,webViewTitle)
+    }
 
-        _binding!!.termsOfUseId.topNavHandleId.webViewTitleId.text = webViewTitle
+    private fun webViewRunUrlAndTitle(url:String, title:String){
+        _binding?.termsOfUseId?.webViewId?.webViewClient = MyWebViewClient()
+        // Loading a URL
+        _binding?.termsOfUseId?.webViewId?.loadUrl(url)
+
+        _binding?.termsOfUseId?.topNavHandleId?.webViewTitleId?.text = title
     }
 
     inner class MyWebViewClient : WebViewClient() {
@@ -52,7 +57,7 @@ class TermsOfServiceFragment : Fragment(R.layout.fragment_terms_of_service) {
         // ProgressBar will disappear once page is loaded
         override fun onPageFinished(view: WebView, url: String) {
             super.onPageFinished(view, url)
-            _binding!!.termsOfUseId.webViewProgressBarId.visibility = View.GONE
+            _binding?.termsOfUseId?.webViewProgressBarId?.visibility = View.GONE
         }
     }
 }

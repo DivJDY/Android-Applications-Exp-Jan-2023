@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
 import com.aop.interplay.databinding.FragmentSignUpBinding
@@ -18,54 +19,50 @@ import com.aop.interplay.ui.fragments.BaseFragment
 
 //SignUp
 class SignUpFragment : BaseFragment() {
-    private lateinit var binding: FragmentSignUpBinding
-    private lateinit var clickableSpanTerms: ClickableSpan
-    private lateinit var clickableSpanPrivacy: ClickableSpan
-
-    // private var text = context?.getText(R.string.disclaimerTxt)
-    // private val spannableString = SpannableString(text.toString())
-    private var text =
-        "By continuing, you agree to our Terms of Service and acknowledge that you have read our Privacy Policy."
-    private val spannableString = SpannableString(text)
+    private var binding: FragmentSignUpBinding? = null
+    private lateinit var text: String
+    private lateinit var spannableString: SpannableString
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        binding=FragmentSignUpBinding.inflate(inflater,container,false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        text = context?.getString(R.string.disclaimerTxt).toString()
+
+        spannableString = SpannableString(text)
         binding = FragmentSignUpBinding.bind(view)
-        binding.signUpMobileId.setOnClickListener { findNavController().navigate(R.id.navigation_signupMobile) }
+        binding?.signUpMobileId?.setOnClickListener { findNavController().navigate(R.id.navigation_signupMobile) }
 
-        clickableSpanTerms = clickableSpanLink(R.id.navigation_termsCondition)
-        makeTextSpanMove(clickableSpanTerms, 32, 48)
-
-        clickableSpanPrivacy = clickableSpanLink(R.id.navigation_privacyPolicy)
-        makeTextSpanMove(clickableSpanPrivacy, 88, 102)
-
+        makeTextSpanMove(R.id.navigation_termsCondition, 32, 48)
+        makeTextSpanMove(R.id.navigation_privacyPolicy, 88, 102)
     }
 
-    private fun clickableSpanLink(nav: Int): ClickableSpan {
-        var clickableSpan: ClickableSpan = object : ClickableSpan() {
-            override fun updateDrawState(ds: TextPaint) {
-                super.updateDrawState(ds)
-                ds.color = Color.WHITE
-            }
-            override fun onClick(widget: View) {
-                findNavController().navigate(nav)
-            }
-        }
-        return clickableSpan
+    private fun makeTextSpanMove(navigation: Int, startInd: Int, endInd: Int) {
+        spannableString.setSpan(clickableSpanLink(navigation), startInd, endInd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding?.textView3?.setText(spannableString, TextView.BufferType.SPANNABLE)
+        binding?.textView3?.movementMethod = LinkMovementMethod.getInstance()
     }
-
-    private fun makeTextSpanMove(clickableSpan: ClickableSpan, startInd: Int, endInd: Int) {
-        spannableString.setSpan(clickableSpan, startInd, endInd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        binding.textView3.setText(spannableString, TextView.BufferType.SPANNABLE)
-        binding.textView3.movementMethod = LinkMovementMethod.getInstance()
-    }
-
 }
+
+//ClickableSpanLink function
+fun Fragment.clickableSpanLink(nav: Int): ClickableSpan {
+    return object : ClickableSpan() {
+        override fun updateDrawState(ds: TextPaint) {
+            super.updateDrawState(ds)
+            ds.color = Color.WHITE
+        }
+        override fun onClick(widget: View) {
+            findNavController().navigate(nav)
+        }
+    }
+}
+
+

@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobileInputLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgColor"
     tools:context=".ui.fragments.signup.SignUpWithMobileNumberFragment">
-
 
     <include
         android:id="@+id/topNavHandleId"
@@ -33,80 +33,115 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topNavHandleId" />
 
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/signUpMobileInputLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginHorizontal="20dp"-->
+    <!--        android:hint="Mobile Number"-->
+    <!--        android:showDividers="end"-->
+    <!--        app:boxStrokeWidth="2dp"-->
+    <!--        app:counterMaxLength="10"-->
+    <!--        app:endIconMode="clear_text"-->
+    <!--        app:endIconTint="@color/white"-->
+    <!--        app:errorEnabled="false"-->
+    <!--        app:errorTextColor="@color/white"-->
+    <!--        app:helperText="Required *"-->
+    <!--        app:helperTextTextColor="@color/white"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.266"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView2"-->
+    <!--        app:layout_constraintVertical_bias="0.142"-->
+    <!--        tools:ignore="HardcodedText">-->
+
+    <!--        <com.google.android.material.textfield.TextInputEditText-->
+    <!--            android:id="@+id/signUpMobileInputNumber"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:cursorVisible="true"-->
+    <!--            android:imeOptions="actionDone"-->
+    <!--            android:inputType="number"-->
+    <!--            android:maxLength="10"-->
+    <!--            android:minHeight="35dp"-->
+    <!--            android:phoneNumber="true"-->
+    <!--            android:shadowColor="@color/purple_700"-->
+    <!--            android:singleLine="true"-->
+    <!--            android:textAllCaps="false"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textColorHighlight="@color/white"-->
+    <!--            android:textColorHint="@color/white"-->
+    <!--            android:textColorLink="@color/white"-->
+    <!--            tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />-->
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="44dp"
         android:lineHeight="20sp"
         android:text="@string/signUpMobileTxt"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.056" />
-
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/signUpMobileInputLayout"
+        android:id="@+id/mobileTxtInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:hint="Mobile Number"
-        android:showDividers="end"
-        app:boxStrokeWidth="2dp"
-        app:counterMaxLength="10"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/white"
-        app:errorEnabled="false"
-        app:errorTextColor="@color/white"
-        app:helperText="Required *"
-        app:helperTextTextColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:textColorHint="#FEFEFE"
+        app:boxBackgroundColor="@color/bgColor"
+        app:boxBackgroundMode="filled"
+        app:boxStrokeColor="#DC1212"
+        app:errorTextColor="#DE1616"
+        app:helperTextTextColor="#FEFEFE"
+        app:hintTextColor="#FEFEFE"
+        app:layout_constraintBottom_toTopOf="@+id/signUpNextMobileId"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.142"
-        tools:ignore="HardcodedText">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/signUpMobileInputNumber"
+            android:id="@+id/mobileNumberId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
-            android:imeOptions="actionDone"
+            android:cursorVisible="false"
+            android:hint="Mobile Number"
+            android:textSize="16sp"
+            android:lineHeight="20sp"
             android:inputType="number"
             android:maxLength="10"
-            android:minHeight="35dp"
-            android:phoneNumber="true"
-            android:shadowColor="@color/purple_700"
-            android:singleLine="true"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textColorHighlight="@color/white"
-            android:textColorHint="@color/white"
-            android:textColorLink="@color/white"
-            tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+            android:numeric="decimal"
+            android:textColor="#FEFEFE"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="263dp" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <Button
         android:id="@+id/signUpNextMobileId"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="300dp"
         android:backgroundTint="@color/signUpBtnInactive"
         android:text="Next"
         android:textColor="#424242"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpMobileInputLayout"
-        app:layout_constraintVertical_bias="0.129"
+        app:layout_constraintEnd_toEndOf="@+id/mobileTxtInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/mobileTxtInputLayout"
         tools:ignore="HardcodedText,VisualLintButtonSize" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
