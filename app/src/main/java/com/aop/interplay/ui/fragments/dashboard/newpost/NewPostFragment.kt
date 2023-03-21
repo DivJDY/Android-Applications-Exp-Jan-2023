@@ -1,4 +1,4 @@
-package com.aop.interplay.ui.fragments.newpost
+package com.aop.interplay.ui.fragments.dashboard.newpost
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import com.aop.interplay.ui.fragments.BaseFragment
 
 @AndroidEntryPoint
-class NewpostFragment : BaseFragment() {
+class NewPostFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

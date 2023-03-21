@@ -22,7 +22,7 @@ class HomeViewModel @Inject constructor(
     fun getHomeVideos() {
         viewModelScope.launch {
             networkRepository.getHomeVideos().collectLatest { values ->
-                _content.value = values.data?.homePosts.orEmpty()
+                _content.value = values.data?.homeScreenPosts?.post.orEmpty()
             }
         }
     }

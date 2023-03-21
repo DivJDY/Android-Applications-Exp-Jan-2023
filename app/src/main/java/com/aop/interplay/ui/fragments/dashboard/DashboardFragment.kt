@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.aop.interplay.R
 import com.aop.interplay.databinding.FragmentDashboardBinding
 import com.aop.interplay.ui.fragments.BaseFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.aop.interplay.ui.fragments.dashboard.discover.DiscoverFragment
+import com.aop.interplay.ui.fragments.dashboard.home.HomeFragment
+import com.aop.interplay.ui.fragments.dashboard.learn.LearnFragment
+import com.aop.interplay.ui.fragments.dashboard.newpost.NewPostFragment
+import com.aop.interplay.ui.fragments.dashboard.profile.ProfileFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,10 +30,16 @@ class DashboardFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
-        val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(binding.root)
-        navView.setupWithNavController(navController)
+        binding.navView.setupFragments(
+            childFragmentManager, R.id.nav_host_fragment, listOf(
+                HomeFragment(),
+                DiscoverFragment(),
+                NewPostFragment(),
+                LearnFragment(),
+                ProfileFragment()
+            )
+        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

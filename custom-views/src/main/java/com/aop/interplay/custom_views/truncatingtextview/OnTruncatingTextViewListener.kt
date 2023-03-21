@@ -1,4 +1,4 @@
-package com.aop.interplay.custom_views.listeners
+package com.aop.interplay.custom_views.truncatingtextview
 
 interface OnTruncatingTextViewListener {
     fun onExpandClicked()

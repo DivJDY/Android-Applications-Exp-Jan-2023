@@ -10,12 +10,11 @@ import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
-import com.aop.interplay.custom_views.listeners.OnTruncatingTextViewListener
+import com.aop.interplay.custom_views.truncatingtextview.OnTruncatingTextViewListener
 import com.aop.interplay.data.network.HomePost
 import com.aop.interplay.databinding.AdapterVideoViewItemBinding
 import com.aop.interplay.extensions.loadCircularImage
 import com.aop.interplay.listeners.VideoInteractionListener
-import com.bumptech.glide.Glide
 
 class VideoViewListAdapter(
     private val videosList: List<HomePost>,
@@ -92,7 +91,7 @@ class VideoViewListAdapter(
         with(holder) {
             val dataSourceFactory: DataSource.Factory = DefaultHttpDataSource.Factory()
             val hlsMediaSource = HlsMediaSource.Factory(dataSourceFactory)
-                .createMediaSource(MediaItem.fromUri(videosList[holder.adapterPosition].url))
+                .createMediaSource(MediaItem.fromUri(videosList[holder.adapterPosition].videoInfo.url))
 
             exoPlayer.setMediaSource(hlsMediaSource)
             exoPlayer.prepare()
