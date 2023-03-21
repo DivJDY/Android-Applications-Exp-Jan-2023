@@ -1,6 +1,6 @@
 package com.aop.interplay.ui.fragments.signup
 
-import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
@@ -55,9 +56,10 @@ class SignUpFragment : BaseFragment() {
 //ClickableSpanLink function
 fun Fragment.clickableSpanLink(nav: Int): ClickableSpan {
     return object : ClickableSpan() {
+        @RequiresApi(Build.VERSION_CODES.M)
         override fun updateDrawState(ds: TextPaint) {
             super.updateDrawState(ds)
-            ds.color = Color.WHITE
+            ds.color = context?.getColor(R.color.descTextColor)!!
         }
         override fun onClick(widget: View) {
             findNavController().navigate(nav)

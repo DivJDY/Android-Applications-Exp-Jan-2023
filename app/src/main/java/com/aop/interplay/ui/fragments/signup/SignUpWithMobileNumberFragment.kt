@@ -13,13 +13,12 @@ import androidx.navigation.fragment.findNavController
 import com.aop.interplay.R
 import com.aop.interplay.databinding.FragmentSignUpWithMobileNumberBinding
 import com.aop.interplay.ui.fragments.BaseFragment
-import kotlin.random.Random
-
 
 class SignUpWithMobileNumberFragment : BaseFragment() {
     private var binding: FragmentSignUpWithMobileNumberBinding? = null
     private var title = "Sign Up"
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +28,7 @@ class SignUpWithMobileNumberFragment : BaseFragment() {
         return binding?.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSignUpWithMobileNumberBinding.bind(view)
@@ -37,13 +37,11 @@ class SignUpWithMobileNumberFragment : BaseFragment() {
             findNavController().navigate(R.id.navigation_signup)
         }
 
+        binding?.mobileTxtInputLayout?.requestFocus()
+        binding?.mobileTxtInputLayout?.boxStrokeColor= context?.getColor(R.color.white)!!
+
         binding?.signUpNextMobileId?.setOnClickListener {
-            val sixDigitOTP = Bundle()
-            sixDigitOTP.putString("OTP", generateOTP().toString())
-            if(sixDigitOTP != null){
-                findNavController().navigate(R.id.navigation_singUpMobileOtpVerify, sixDigitOTP)
-                sixDigitOTP.remove("OTP")
-            }
+            Log.d("Proceed to ", "Verify Mobile Screen")
         }
 
         binding?.mobileNumberId?.addTextChangedListener(object : TextWatcher {
@@ -60,7 +58,6 @@ class SignUpWithMobileNumberFragment : BaseFragment() {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
 
             @RequiresApi(Build.VERSION_CODES.M)
@@ -83,13 +80,4 @@ class SignUpWithMobileNumberFragment : BaseFragment() {
         return regex.matches(input)
     }
 
-
-    private fun generateOTP(): Int{
-        val random = Random(System.currentTimeMillis())
-        val min = 100_000
-        val max = 999_999
-        val randomOTP = random.nextInt(max - min + 1) + min
-        Log.d("Random Number ", randomOTP.toString())
-        return randomOTP
-    }
 }

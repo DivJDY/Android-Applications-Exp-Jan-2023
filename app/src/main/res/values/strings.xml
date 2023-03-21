@@ -36,6 +36,7 @@
         where to contact you.</string>
     <string name="signUpTxt1">When’s Your Birthday?</string>
     <string name="signUpDesc">This won’t be shared publicly</string>
+    <string name="signUpMobileHint">Mobile Number</string>
 
 
     <!--    Terms and condition -->
