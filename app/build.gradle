@@ -20,8 +20,8 @@ android {
         applicationId "com.aop.interplay"
         minSdk 21
         targetSdk 33
-        versionCode versionCode
-        versionName "1.0"
+        versionCode 10
+        versionName "0.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -63,25 +63,6 @@ android {
     buildFeatures {
         viewBinding true
     }
-
-    task('increaseVersionCode') {
-        doLast {
-            def manifestFile = file("src/main/AndroidManifest.xml")
-            def pattern = Pattern.compile("versionCode=\"(\\d+)\"")
-            def manifestText = manifestFile.getText()
-            def matcher = pattern.matcher(manifestText)
-            matcher.find()
-            def versionCode = Integer.parseInt(matcher.group(1))
-            def manifestContent = matcher.replaceAll("versionCode=\"" + ++versionCode + "\"")
-            manifestFile.write(manifestContent)
-        }
-    }
-
-    tasks.whenTaskAdded { task ->
-        if (task.name == 'generateReleaseBuildConfig') {
-            task.dependsOn 'increaseVersionCode'
-        }
-    }
 }
 
 dependencies {
@@ -120,10 +101,10 @@ dependencies {
     androidTestImplementation androidTestLibraries.espresso
 
     // dependency for exoplayer
-    implementation 'com.google.android.exoplayer:exoplayer:2.18.3'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.3'
-    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.3'
-    implementation 'com.google.android.exoplayer:exoplayer-hls:2.18.3'
-    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.3'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.3'
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.4'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.4'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.4'
+    implementation 'com.google.android.exoplayer:exoplayer-hls:2.18.4'
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.4'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.4'
 }

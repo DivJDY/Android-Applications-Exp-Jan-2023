@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.google.android.exoplayer2.ExoPlayer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import dagger.hilt.android.AndroidEntryPoint
 import com.aop.interplay.adapters.VideoViewListAdapter
 import com.aop.interplay.data.network.HomePost
@@ -19,8 +20,8 @@ class HomeFragment : BaseFragment(), VideoInteractionListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
-    private var exoPlayer: ExoPlayer? = null
 
+    private val snapHelper = PagerSnapHelper()
     private var adapter: VideoViewListAdapter? = null
     private var listData: MutableList<HomePost> = mutableListOf()
 
@@ -38,8 +39,6 @@ class HomeFragment : BaseFragment(), VideoInteractionListener {
     }
 
     override fun onDestroyView() {
-        exoPlayer?.release()
-        exoPlayer = null
         _binding = null
         super.onDestroyView()
     }
@@ -61,13 +60,7 @@ class HomeFragment : BaseFragment(), VideoInteractionListener {
     }
 
     override fun onVideoClicked() {
-        exoPlayer?.let {
-            if (it.isPlaying) {
-                it.pause()
-            } else {
-                it.play()
-            }
-        }
+        // TODO: handle video click
     }
 
     override fun onLearnClicked() {
@@ -87,14 +80,11 @@ class HomeFragment : BaseFragment(), VideoInteractionListener {
     }
 
     private fun initViews() {
-        exoPlayer = ExoPlayer.Builder(requireContext()).build().apply {
-            playWhenReady = true
-        }
-        exoPlayer?.let {
-            adapter = VideoViewListAdapter(listData, it, this)
-            binding.viewPager.adapter = adapter
-            viewModel.getHomeVideos()
-        }
+        adapter = VideoViewListAdapter(listData, this)
+        binding.rvVideos.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvVideos.adapter = adapter
+        snapHelper.attachToRecyclerView(binding.rvVideos)
+        viewModel.getHomeVideos()
     }
 
     private fun initObservers() {

@@ -18,7 +18,7 @@ data class HomePost(
     @SerializedName("sk") val name: String,
     @SerializedName("description") val description: String,
     @SerializedName("hashtag") val tags: List<String>,
-    @SerializedName("type") val type: Type,
+    @SerializedName("type") val type: Type?,
     @SerializedName("createdTime") val createdTime: String,
     @SerializedName("createdBy") val createdBy: CreatedBy,
     @SerializedName("videoInfo") val videoInfo: VideoInfo,
@@ -26,8 +26,8 @@ data class HomePost(
 )
 
 data class Type(
-    @SerializedName("name") val name: String,
-    @SerializedName("badge") val badge: String
+    @SerializedName("name") val name: String?,
+    @SerializedName("badge") val badge: String?
 )
 
 data class CreatedBy(

@@ -5,7 +5,7 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
 
     <!--  Screens name-->
-    <string name="home_screen_title">A C A D E M Y  O F  P O P</string>
+    <string name="home_screen_title">ACADEMY OF POP</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -20,5 +20,7 @@
     <string name="bottom_navigation_new_post">New Post</string>
     <string name="bottom_navigation_learn">Learn</string>
     <string name="bottom_navigation_profile">Profile</string>
+    <string name="action_search">Search</string>
+    <string name="action_notification">Notification</string>
 
 </resources>

@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:importantForAccessibility="no"
-        android:src="@drawable/icon_discover_default"
+        android:src="@drawable/icon_a_default"
         app:layout_constraintBottom_toTopOf="@id/nav_discover_label"
         app:layout_constraintEnd_toStartOf="@id/guideline_40"
         app:layout_constraintStart_toEndOf="@id/guideline_20" />
@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:importantForAccessibility="no"
-        android:src="@drawable/ic_profile"
+        android:src="@drawable/icon_profile_default"
         app:layout_constraintBottom_toTopOf="@id/nav_profile_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline_80" />
