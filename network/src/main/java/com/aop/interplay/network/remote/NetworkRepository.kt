@@ -16,9 +16,9 @@ class NetworkRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val application: Application
 ) : BaseApiResponse() {
-    suspend fun getHomeVideos(): Flow<NetworkResult<HomeVideoItem>> {
+    suspend fun getPosts(): Flow<NetworkResult<HomeVideoItem>> {
         return flow {
-            emit(safeApiCall { remoteDataSource.getHomeVideos() })
+            emit(safeApiCall { remoteDataSource.getPosts() })
         }.flowOn(Dispatchers.IO)
     }
 }

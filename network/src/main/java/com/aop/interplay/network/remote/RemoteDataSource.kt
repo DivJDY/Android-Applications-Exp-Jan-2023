@@ -5,5 +5,5 @@ import javax.inject.Inject
 class RemoteDataSource @Inject constructor(
     private val videoService: VideoService
 ){
-    suspend fun getHomeVideos() = videoService.getHomeVideos()
+    suspend fun getPosts() = videoService.getPosts()
 }

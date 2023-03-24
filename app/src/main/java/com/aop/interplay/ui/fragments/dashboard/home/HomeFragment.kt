@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import dagger.hilt.android.AndroidEntryPoint
-import com.aop.interplay.adapters.VideoViewListAdapter
+import com.aop.interplay.adapters.home.VideoViewListAdapter
 import com.aop.interplay.data.network.HomePost
 import com.aop.interplay.databinding.FragmentHomeBinding
 import com.aop.interplay.listeners.VideoInteractionListener
@@ -84,7 +84,7 @@ class HomeFragment : BaseFragment(), VideoInteractionListener {
         binding.rvVideos.layoutManager = LinearLayoutManager(requireContext())
         binding.rvVideos.adapter = adapter
         snapHelper.attachToRecyclerView(binding.rvVideos)
-        viewModel.getHomeVideos()
+        viewModel.getPosts()
     }
 
     private fun initObservers() {

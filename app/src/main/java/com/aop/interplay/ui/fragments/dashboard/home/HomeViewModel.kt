@@ -19,9 +19,9 @@ class HomeViewModel @Inject constructor(
     private val _content: MutableLiveData<List<HomePost>> = MutableLiveData()
     val content: LiveData<List<HomePost>> = _content
 
-    fun getHomeVideos() {
+    fun getPosts() {
         viewModelScope.launch {
-            networkRepository.getHomeVideos().collectLatest { values ->
+            networkRepository.getPosts().collectLatest { values ->
                 _content.value = values.data?.homeScreenPosts?.post.orEmpty()
             }
         }

@@ -5,8 +5,24 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/navigation_dashboard">
 
+    <action
+        android:id="@+id/toWebFragment"
+        app:destination="@id/navigation_web_fragment" />
+
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.aop.interplay.ui.fragments.dashboard.DashboardFragment"
         tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_web_fragment"
+        android:name="com.aop.interplay.ui.fragments.web.WebFragment"
+        tools:layout="@layout/fragment_web">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>
